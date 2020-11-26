@@ -1,0 +1,39 @@
+<svg onload="init()" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="512pt" height="512pt" aria-label="Calendar" role="img" viewBox="0 0 512 512" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+  <script type="text/ecmascript"><![CDATA[
+function getMonday(d) {
+  d = new Date(d);
+  var day = d.getDay(),
+      diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
+  return new Date(d.setDate(diff));
+}
+function init() {
+
+  var time = new Date();
+  var locale = "en-gb";
+  var DD   = getMonday(new Date()); 
+  var DDD  = time.toLocaleString(locale, {weekday: "long" });
+  var MMM  = time.toLocaleString(locale, {month:   "short"}).toUpperCase();
+  document.getElementById("day").textContent= DD;
+  document.getElementById("weekday").textContent= DDD;
+  document.getElementById("month").textContent= MMM;
+  
+  // var DDDD = time.toLocaleString(locale, { weekday: "long" });
+  // var MM   = time.getMonth() + 1;
+  // var MMMM = time.toLocaleString(locale, {month: "long"});
+  // var YYYY = time.getFullYear();
+}
+]]></script>
+  <g id="surface1">
+<path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 5.000061 3.999939 L 18.999939 3.999939 C 20.104614 3.999939 21 4.895508 21 6 L 21 20.000061 C 21 21.104553 20.104614 21.999939 18.999939 21.999939 L 5.000061 21.999939 C 3.895386 21.999939 3 21.104553 3 20.000061 L 3 6 C 3 4.895508 3.895386 3.999939 5.000061 3.999939 Z M 5.000061 3.999939 " transform="matrix(21.333333,0,0,21.333333,0,0)"/>
+<path style="fill:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 15.999939 2.000061 L 15.999939 6 " transform="matrix(21.333333,0,0,15.333333,0,0)"/>
+<path style="fill:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 8.000061 2.000061 L 8.000061 6 " transform="matrix(21.333333,0,0,15.333333,0,0)"/>
+<path style="fill:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 3 9.999939 L 21 9.999939 " transform="matrix(21.333333,0,0,21.333333,0,0)"/>
+</g>
+  
+<text id="month" x="142" y="191" fill="#000" font-family="sans-serif" font-size="100px" style="text-anchor: left">NOV</text>
+
+<text id="day" x="256" y="416" fill="#000" font-family="sans-serif" font-size="226px" style="text-anchor: middle">26</text>
+
+<text id="weekday" x="256" y="486" fill="#000" font-family="sans-serif" font-size="24px" style="text-anchor: middle">Thursday</text>
+
+</svg>
